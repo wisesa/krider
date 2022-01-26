@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GRIP Personality Profiling">
+    <meta name="author" content="GRIP Principle">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Archipelago's</title>
+
+    <!------ STYLESHEET ------>
+
+    <!-- add icon link -->
+        <link rel = "icon" href = 
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
+        type = "image/x-icon">
+
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' media="screen,print" rel='stylesheet' type='text/css'>
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/common.css" type="text/css" media="screen,print">
+ 
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+                <div class="pr-4 right">
+                    <div onclick="window.print();" class="btn lighter-blue white btn-purchase-credit margin-top-20 hidden-print">Print</div>
+                </div>
+
+                {{#each print}}
+                <div class="panel media pad-all panel-form">
+                    <div class="media-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table>
+                                    <tr>
+                                        <td><img src="/img/logo.png" /></td>
+                                        <td class="right">
+                                            <table>
+                                                <tr>
+                                                    <td class="pad-2"><b>Transaction Id</b></td>
+                                                    <td class="pad-2"><b>:</b></td>
+                                                    <td class="pad-2" style="width:120px;"><b>{{_id}}</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pad-2">Created Date</td>
+                                                    <td class="pad-2">:</td>
+                                                    <td class="pad-2">
+                                                        {{formatDate date 'DD-MM-YYYY'}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pad-2">Payment Date</td>
+                                                    <td class="pad-2">:</td>
+                                                    <td class="pad-2">
+                                                        14-05-2021
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pad-2">Status</td>
+                                                    <td class="pad-2">:</td>
+                                                    <td class="pad-2">
+                                                        Paid
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 left margin-top-40">
+                            <p class="text-2x mar-no pt12 margin-bottom-5">
+                            </p>
+                            <p class="text-2x mar-no pt12 margin-bottom-5">
+                            </p>
+                            <p class="text-2x mar-no pt12 margin-bottom-5">
+                            </p>
+                        </div>
+
+                        <div class="col-sm-12 left margin-top-40">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="pad-5-10 bg-blue white" colspan="5">Payment Method</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pad-5-10">Cash</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-sm-12 left margin-top-40">
+                            <table class="data">
+                                <thead>
+                                    <tr>
+                                        <th class="pad-5-10 bg-blue white">No</th>
+                                        <th class="pad-5-10 bg-blue white">Item Name</th>
+                                        <th class="pad-5-10 bg-blue white">Price</th>
+                                        <th class="pad-5-10 bg-blue white">Quantity</th>
+                                        <th class="pad-5-10 bg-blue white right">Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <script>var i=0;</script>
+                                    {{#each menu}}
+                                    <script>i++;</script>
+                                    <tr>
+                                        <td class="pad-5-10">
+                                            <script>document.write(i);</script>
+                                        </td>
+                                        <td class="pad-5-10">
+                                            {{name}}
+                                        </td>
+                                        <td class="pad-5-10">
+                                            <script>
+                                            document.write(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format({{price}}));
+                                            </script>
+                                        </td>
+                                        <td class="pad-5-10">
+                                            {{amount}}
+                                        </td>
+                                        <td class="pad-5-10 right">
+                                            <script>
+                                                document.write(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format({{price}}*{{amount}}));
+                                            </script>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                    <tr>
+                                        <td class="pad-5-10"></td>
+                                        <td class="pad-5-10"></td>
+                                        <td class="pad-5-10"></td>
+                                        <td class="pad-5-10"></td>
+                                        <td class="pad-5-10 right">
+                                            <b>Grand Total : 
+                                                <script>
+                                                    document.write(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format({{total}}))
+                                                </script>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+    <!-- end page container -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+</body>
+
+</html>
