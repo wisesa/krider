@@ -28,11 +28,11 @@ const EditCollection = ({
 
   useEffect(() => {
     getCollection(match.params.id);
-    console.log(collection);
 
     if(collection){
 
       if(!loaded){
+        console.log(collection);
         setFormData({
           name: loading || !collection.name ? '' : collection.name,
           year: loading || !collection.year ? '' : collection.year,
@@ -52,10 +52,7 @@ const EditCollection = ({
 
   const onSubmit = async e => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('year', year);
-    formData.append('pic', pic);
+    //console.log(collection._id);
 
     try {
       const res = await axios.put('/api/collection/'+collection._id, formData, {
