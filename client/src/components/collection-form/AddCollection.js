@@ -22,11 +22,6 @@ const AddCollection = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append('name', name);
-    // formData.append('year', year);
-    // formData.append('pic', pic);
-    //formData.append('file', file);
 
     try {
       const res = await axios.post('/api/collection', formData, {
